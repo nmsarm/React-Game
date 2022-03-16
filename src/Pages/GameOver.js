@@ -1,5 +1,5 @@
 import React from "react";
-import './Styles/GameOverStyles.scss';
+import '../Styles/GameOverStyles.scss';
 
 function GameOver() {
     return (

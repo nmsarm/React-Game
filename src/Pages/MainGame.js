@@ -1,9 +1,10 @@
 import React from "react";
-import './Styles/MainGameStyle.css';
+import '../Styles/MainGameStyle.scss';
 
 function MainGame() {
     return (
         <>
+            <h1> bitch na peke </h1>
         </>
     );
 }
