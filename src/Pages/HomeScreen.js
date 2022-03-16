@@ -1,5 +1,5 @@
 import React from "react";
-import './Styles/HomeScreenStyle.scss';
+import '../Styles/HomeScreenStyle.scss';
 
 function HomeScreen() {
     return(
