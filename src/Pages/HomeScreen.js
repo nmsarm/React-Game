@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import '../Styles/HomeScreenStyle.scss';
 import '../Styles/ButtonStyle.scss';
 
@@ -8,7 +10,11 @@ function HomeScreen() {
             <div className="container">
                 <p className="title">AXIE MEMORY GAME</p>
                 <p className="description"> BITCH NA PEKE ANG DAMI MONG DADA</p>
-                <button className="playBtn">Play</button>
+                <Link to ="/main-game" aria-current="page">
+                    <button className="playBtn">
+                        Play
+                    </button>
+                </Link>
             </div>
         </>
     );
