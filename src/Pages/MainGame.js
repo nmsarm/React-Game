@@ -112,7 +112,7 @@ const MainGame = () => {
                 className="shuffle-btn btn-light rounded shadow mt-4"
                 onClick={shuffleCards}
             > 
-                Shuffle 
+                Shuffle / Reset
             </button>                  
 
             <div className="card-grid container pb-4">
