@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-// import FlipSound from '../Assets/FlipSound.mp3';
+import {Howl, Howler} from 'howler';
+import SoundFx from '../Assets/SoundFX.mp3';
 
 import Card from "../Components/Card";
 import '../Styles/MainGameStyle.scss';
@@ -49,6 +50,12 @@ const MainGame = () => {
         setCards(shuffledCards)
         setTurns(0)
     }
+
+    const sound = new Howl({
+        src: [SoundFx]
+    })
+
+    Howler.volume(0.1);
 
     // handle a choice
     const handleChoice = (card) => {
@@ -117,6 +124,7 @@ const MainGame = () => {
                         // flip categories
                         flipped={card === choiceOne || card === choiceTwo || card.matched}
                         disabled={disabled}
+                        onClick={sound.play()}
                     />
                 ))}
             </div>
