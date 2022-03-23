@@ -35,7 +35,7 @@ const cardImages = [
 const MainGame = () => {
 
     const [ cards, setCards ] = useState([])
-    const [ turns, setTurns ] = useState(0)
+    const [ moves, setMoves ] = useState(0)
     const [ choiceOne, setChoiceOne ] = useState(null)
     const [ choiceTwo, setChoiceTwo ] = useState(null)
     const [ disabled, setDisabled ] = useState(false);
@@ -48,7 +48,7 @@ const MainGame = () => {
         setChoiceOne(null)
         setChoiceTwo(null)
         setCards(shuffledCards)
-        setTurns(0)
+        setMoves(0)
     }
 
     const sound = new Howl({
@@ -83,9 +83,9 @@ const MainGame = () => {
                         }
                     }) 
                 })
-                resetTurn()
+                resetMoves()
             } else {
-                setTimeout(() => resetTurn(), 1000)
+                setTimeout(() => resetMoves(), 1000)
             }
         }
     }, [choiceOne, choiceTwo])
@@ -93,10 +93,10 @@ const MainGame = () => {
     console.log(cards)
 
     // reset choices & increase turn
-    const resetTurn = () => {
+    const resetMoves= () => {
         setChoiceOne(null)
         setChoiceTwo(null)
-        setTurns(prevTurns => prevTurns + 1)
+        setMoves(prevMoves => prevMoves + 1)
         setDisabled(false)
     }
 
@@ -128,7 +128,7 @@ const MainGame = () => {
                     />
                 ))}
             </div>
-            <p className="text-white mt-4"> Turns: {turns} </p>
+            <p className="text-white mt-4"> Moves: {moves} </p>
         </div>
     );
 }
