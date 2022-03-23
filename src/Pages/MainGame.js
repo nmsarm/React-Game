@@ -4,6 +4,10 @@ import {Howl, Howler} from 'howler';
 import SoundFx from '../Assets/SoundFX.mp3';
 
 import Card from "../Components/Card";
+
+// For Modal
+import { Modal } from "react-bootstrap";
+
 import '../Styles/MainGameStyle.scss';
 
 import Axie1 from "../Assets/axie1.png"
@@ -16,6 +20,7 @@ import Axie7 from "../Assets/axie7.png"
 import Axie8 from "../Assets/axie8.png"
 import Axie9 from "../Assets/axie9.png"
 import Axie10 from "../Assets/axie10.png"
+import { Container } from "react-bootstrap";
 
 
 // Array of Cards
@@ -41,6 +46,11 @@ const MainGame = () => {
     const [ choiceTwo, setChoiceTwo ] = useState(null)
     const [ disabled, setDisabled ] = useState(false);
 
+    //modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
 
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages] //2 sets
@@ -57,6 +67,7 @@ const MainGame = () => {
 
     }
 
+    // sound fx
     const sound = new Howl({
         src: [SoundFx]
     })
@@ -73,8 +84,11 @@ const MainGame = () => {
     useEffect(() => {
         if( choiceOne && choiceTwo ) {
             setDisabled(true) //disable flip
+            
             //if two cards match
             if (choiceOne.src === choiceTwo.src) { 
+
+                //increase matches
                 setMatches(prevMatches => prevMatches + 1)
 
                 // update card state - previous card state
@@ -109,12 +123,20 @@ const MainGame = () => {
         setDisabled(false)
     }
 
+    // check if card matches === 6
     const checkMatches = () => {
         console.log("Card Matches: " + matches )
         if (matches === cards.length/2) {
             console.log("You found them all in " + (moves + 1) + " moves!"); //di q alam hnghh - call modal/congratulations
+            setShow(true)
         } 
     }
+
+    const playAgain = () => {
+        shuffleCards()
+        handleClose()
+    }
+    
 
     // start a new game automatically
     useEffect(() => {
@@ -145,6 +167,29 @@ const MainGame = () => {
                 ))}
             </div>
             <p className="text-white mt-4"> Moves: {moves} </p>
+
+            <Modal
+                  show={show}
+                  onHide={handleClose}
+                  backdrop="static"
+                  keyboard={false}
+              >
+                  <Modal.Header>
+                  <Modal.Title>Congratulations!</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                        You found them all in {moves} moves. 
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <button 
+                        variant="primary" 
+                        onClick={playAgain}
+                    >
+                        Play Again 
+                    </button>
+                  </Modal.Footer>
+            </Modal>
+
         </div>
     );
 }
