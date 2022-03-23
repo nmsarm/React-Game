@@ -36,9 +36,11 @@ const MainGame = () => {
 
     const [ cards, setCards ] = useState([])
     const [ moves, setMoves ] = useState(0)
+    const [ matches, setMatches ] = useState(0)
     const [ choiceOne, setChoiceOne ] = useState(null)
     const [ choiceTwo, setChoiceTwo ] = useState(null)
     const [ disabled, setDisabled ] = useState(false);
+
 
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages] //2 sets
@@ -49,6 +51,10 @@ const MainGame = () => {
         setChoiceTwo(null)
         setCards(shuffledCards)
         setMoves(0)
+        setMatches(1)
+
+        console.log("Shuffled/Reset")
+
     }
 
     const sound = new Howl({
@@ -67,9 +73,10 @@ const MainGame = () => {
     useEffect(() => {
         if( choiceOne && choiceTwo ) {
             setDisabled(true) //disable flip
-
             //if two cards match
             if (choiceOne.src === choiceTwo.src) { 
+                setMatches(prevMatches => prevMatches + 1)
+
                 // update card state - previous card state
                 setCards(prevCards => { 
                     //map in new array
@@ -77,27 +84,36 @@ const MainGame = () => {
                         if (card.src === choiceOne.src) {
                             //return new object
                             return {...card, matched: true} 
-                            
                         } else {
                             return card
                         }
+
                     }) 
                 })
                 resetMoves()
             } else {
                 setTimeout(() => resetMoves(), 1000)
             }
+
+            checkMatches()
         }
     }, [choiceOne, choiceTwo])
 
-    console.log(cards)
+    // console.log(cards) - log array
 
-    // reset choices & increase turn
-    const resetMoves= () => {
+    // reset choices & increase moves
+    const resetMoves = () => {
         setChoiceOne(null)
         setChoiceTwo(null)
         setMoves(prevMoves => prevMoves + 1)
         setDisabled(false)
+    }
+
+    const checkMatches = () => {
+        console.log("Card Matches: " + matches )
+        if (matches === cards.length/2) {
+            console.log("You found them all in " + (moves + 1) + " moves!"); //di q alam hnghh - call modal/congratulations
+        } 
     }
 
     // start a new game automatically
