@@ -1,7 +1,7 @@
 import React from "react";
 import '../Styles/Congratulations.scss';
 
-function Congratulations() {
+const Congratulations = () => {
     return (
         <>
             <div className="container">

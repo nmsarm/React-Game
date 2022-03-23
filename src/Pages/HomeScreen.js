@@ -4,14 +4,22 @@ import { Link } from "react-router-dom";
 import '../Styles/HomeScreenStyle.scss';
 import '../Styles/ButtonStyle.scss';
 
-function HomeScreen() {
+const HomeScreen = ( shuffleCards ) => {
+
+    const shuffle = () => {
+        shuffleCards()
+    }
+
     return(
         <>
-            <div className="container">
-                <p className="title">AXIE MEMORY GAME</p>
-                <p className="description"> BITCH NA PEKE ANG DAMI MONG DADA</p>
+            <div className="home-container container">
+                <p className="home-title">AXIE MEMORY GAME</p>
+                <p className="home-description"> BITCH NA PEKE ANG DAMI MONG DADA</p>
                 <Link to ="/main-game" aria-current="page">
-                    <button className="playBtn">
+                    <button 
+                        className="playBtn"
+                        onClick={shuffle}
+                    >
                         Play
                     </button>
                 </Link>

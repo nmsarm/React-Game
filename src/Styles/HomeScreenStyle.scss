@@ -4,7 +4,7 @@ body {
     text-align: center;
 }
 
-.container {
+.home-container {
     height: 400px;
     width: 65%;
     padding: 6%;
@@ -20,14 +20,12 @@ body {
     border-radius: 10px;
 }
 
-.title {
+.home-title {
     color: #fff;
     font-size: 60px;
-    font-family: 'Fredoka One', cursive;
 }
 
-.description {
+.home-description {
     color: #fff;
     font-size: 20px;
-    font-family: 'Fredoka One', cursive;
 }
