@@ -107,7 +107,7 @@ const MainGame = () => {
     
     return (
         <div className="container-fluid">
-            <h1 className="main-title pt-5"> Axie Memory Game </h1>
+            <h1 className="main-title pt-5 mt-3"> Axie Memory Game </h1>
             <button 
                 className="shuffle-btn btn-light rounded shadow mt-4"
                 onClick={shuffleCards}
