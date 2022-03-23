@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import '../Styles/HomeScreenStyle.scss';
 import '../Styles/ButtonStyle.scss';
 
-const HomeScreen = ( shuffleCards ) => {
-
-    const shuffle = () => {
-        shuffleCards()
-    }
+const HomeScreen = () => {
 
     return(
         <>
@@ -16,10 +12,7 @@ const HomeScreen = ( shuffleCards ) => {
                 <p className="home-title">AXIE MEMORY GAME</p>
                 <p className="home-description"> BITCH NA PEKE ANG DAMI MONG DADA</p>
                 <Link to ="/main-game" aria-current="page">
-                    <button 
-                        className="playBtn"
-                        onClick={shuffle}
-                    >
+                    <button className="playBtn">
                         Play
                     </button>
                 </Link>
