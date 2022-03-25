@@ -4,11 +4,11 @@ body {
     text-align: center;
 }
 
-.home-container {
-    height: 400px;
+.mechanics-container {
+    height: 700px;
     width: 65%;
-    padding: 5%;
-    line-height: 40px;
+    padding: 3%;
+    line-height: 50px;
     background-color: $brownBG;
     border: 10px solid $darkbrown;
     position: absolute;
@@ -20,12 +20,17 @@ body {
     border-radius: 10px;
 }
 
-.home-title {
+.mechanics-title {
     color: #fff;
     font-size: 60px;
 }
 
-.home-description {
+.mechanics-description {
     color: #fff;
-    font-size: 20px;
+    font-size: 27px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 10px;
+    padding-left: 15%;
+    padding-right: 15%;
 }

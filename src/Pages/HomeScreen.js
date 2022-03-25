@@ -13,9 +13,14 @@ const HomeScreen = () => {
                 <p className="home-description"> TIME TO TEST YOUR MEMORY </p>
                 <Link to ="/main-game" aria-current="page">
                     <button className="playBtn">
-                        Play
+                        Start
                     </button>
                 </Link>
+                <Link to ="/how-to-play" aria-current="page">
+                    <button className="mechanicsBtn">
+                            How to Play
+                    </button>
+                </Link>    
             </div>
         </>
     );
