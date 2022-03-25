@@ -132,16 +132,17 @@ const MainGame = () => {
     const checkMatches = () => {
         console.log("Card Matches: " + matches )
         if (matches === cards.length/2) {
-            console.log("You found them all in " + (moves + 1) + " moves!"); //di q alam hnghh - call modal/congratulations
-            setShow(true)
+            console.log("You found them all in " + (moves + 1) + " moves!"); 
+            setShow(true) //call win modal 
         } 
     }
 
     // lose 
     const gameOver = () => {
-        if (moves > 14) {
+        //if moves+1 == 15 (starts with index 0) and matches != 6
+        if (moves == 14 && !(matches === cards.length/2)) { // moves starts w/ 0, == para di na pwede magmove ulit
             console.log("You already have " + (moves + 1) + " moves. Want to try again?");
-            setShow2(true);
+            setShow2(true); //call lose modal
         }
     }
 
@@ -197,14 +198,15 @@ const MainGame = () => {
                   backdrop="static"
                   keyboard={false}
               >
-                  <Modal.Header>
-                  <Modal.Title>Congratulations!</Modal.Title>
+                <Modal.Header className="justify-content-center">
+                <Modal.Title> <h1 className="text-white"> Congratulations! </h1></Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                        You found them all in {moves} moves. 
+                    <h5 className="p-4"> You found them all in {moves} moves. </h5>
                   </Modal.Body>
-                  <Modal.Footer>
+                  <Modal.Footer className="justify-content-center">
                     <button 
+                        class="tryBtn"
                         variant="primary" 
                         onClick={playAgain}
                     >
@@ -219,14 +221,15 @@ const MainGame = () => {
                   backdrop="static"
                   keyboard={false}
               >
-                  <Modal.Header>
-                  <Modal.Title>You lost!</Modal.Title>
+                  <Modal.Header className="justify-content-center">
+                  <Modal.Title> <h1 className="text-white">  You lost! </h1></Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                        You exceeded 15 moves. Want to try again? 
+                    <h5 className="p-4"> You have no moves left. Want to try again? </h5>
                   </Modal.Body>
-                  <Modal.Footer>
+                  <Modal.Footer className="justify-content-center">
                     <button 
+                        class="tryBtn"
                         variant="primary" 
                         onClick={playAgain2}
                     >
