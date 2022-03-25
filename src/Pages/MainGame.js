@@ -139,7 +139,7 @@ const MainGame = () => {
 
     // lose 
     const gameOver = () => {
-        //if moves+1 == 15 (starts with index 0) and matches != 6
+        //if moves+1 == 15 (starts with index 0) and matches != 6 (since lumilitaw kahit win sa last move)
         if (moves == 14 && !(matches === cards.length/2)) { // moves starts w/ 0, == para di na pwede magmove ulit
             console.log("You already have " + (moves + 1) + " moves. Want to try again?");
             setShow2(true); //call lose modal
