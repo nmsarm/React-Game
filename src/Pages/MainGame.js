@@ -5,22 +5,23 @@ import SoundFx from '../Assets/SoundFX.mp3';
 
 import Card from "../Components/Card";
 
+
 // For Modal
 import { Modal } from "react-bootstrap";
 
 import '../Styles/MainGameStyle.scss';
 
-import Axie1 from "../Assets/axie1.png"
-import Axie2 from "../Assets/axie2.png"
-import Axie3 from "../Assets/axie3.png"
-import Axie4 from "../Assets/axie4.png"
-import Axie5 from "../Assets/axie5.png"
-import Axie6 from "../Assets/axie6.png"
-import Axie7 from "../Assets/axie7.png"
-import Axie8 from "../Assets/axie8.png"
-import Axie9 from "../Assets/axie9.png"
-import Axie10 from "../Assets/axie10.png"
-import { Container } from "react-bootstrap";
+import Axie1 from "../Assets/axie1.jpg"
+import Axie2 from "../Assets/axie2.jpg"
+import Axie3 from "../Assets/axie3.jpg"
+import Axie4 from "../Assets/axie4.jpg"
+import Axie5 from "../Assets/axie5.jpg"
+import Axie6 from "../Assets/axie6.jpg"
+// import Axie7 from "../Assets/axie7.png"
+// import Axie8 from "../Assets/axie8.png"
+// import Axie9 from "../Assets/axie9.png"
+// import Axie10 from "../Assets/axie10.png"
+// import { Container } from "react-bootstrap";
 
 
 // Array of Cards

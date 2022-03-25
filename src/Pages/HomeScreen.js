@@ -8,7 +8,7 @@ const HomeScreen = () => {
 
     return(
         <>
-            <div className="home-container container">
+            <div className="home-container">
                 <p className="home-title">AXIE MEMORY GAME</p>
                 <p className="home-description"> BITCH NA PEKE ANG DAMI MONG DADA</p>
                 <Link to ="/main-game" aria-current="page">

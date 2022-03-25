@@ -1,6 +1,7 @@
 import React from "react";
 import '../Styles/CardStyle.scss';
-import AxieLogo from "../Assets/axie_logo.png";
+// import AxieLogo from "../Assets/axie_logo.png";
+import BACK from "../Assets/BACK.jpg";
 
 export default function Card ({card, handleChoice, flipped, disabled})  {
 
@@ -20,7 +21,7 @@ export default function Card ({card, handleChoice, flipped, disabled})  {
             /> 
             <img 
                 className="back" 
-                src={AxieLogo} 
+                src={BACK} 
                 onClick={handleClick}
                 alt="card back" 
             />
