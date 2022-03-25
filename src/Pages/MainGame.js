@@ -4,6 +4,7 @@ import {Howl, Howler} from 'howler';
 import SoundFx from '../Assets/SoundFX.mp3';
 
 import Card from "../Components/Card";
+// import Timer from "../Components/TimeLimit";
 
 
 // For Modal
@@ -52,6 +53,9 @@ const MainGame = () => {
     const handleClose = () => setShow(false);
     // const handleShow = () => setShow(true);
 
+     //modal if lose
+     const [show2, setShow2] = useState(false);
+     const handleClose2 = () => setShow2(false);
 
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages] //2 sets
@@ -64,7 +68,7 @@ const MainGame = () => {
         setMoves(0)
         setMatches(1)
 
-        console.log("Shuffled/Reset")
+        console.log("Shuffle/Reset")
 
     }
 
@@ -109,7 +113,7 @@ const MainGame = () => {
             } else {
                 setTimeout(() => resetMoves(), 1000)
             }
-
+            gameOver()
             checkMatches()
         }
     }, [choiceOne, choiceTwo])
@@ -133,12 +137,26 @@ const MainGame = () => {
         } 
     }
 
+    // lose 
+    const gameOver = () => {
+        if (moves > 14) {
+            console.log("You already have " + (moves + 1) + " moves. Want to try again?");
+            setShow2(true);
+        }
+    }
+
     const playAgain = () => {
         shuffleCards()
         handleClose()
     }
-    
 
+
+    const playAgain2 = () => {
+        shuffleCards()
+        handleClose2()
+    }
+    
+    
     // start a new game automatically
     useEffect(() => {
         shuffleCards()
@@ -167,8 +185,12 @@ const MainGame = () => {
                     />
                 ))}
             </div>
-            <p className="text-white mt-4"> Moves: {moves} </p>
 
+            <div className="moves-container">
+                <p className="text-white"> Moves: {moves} </p>
+                <p className="text-white"> Moves Remaining: {15 - moves}  </p> 
+            </div>        
+        
             <Modal
                   show={show}
                   onHide={handleClose}
@@ -190,6 +212,29 @@ const MainGame = () => {
                     </button>
                   </Modal.Footer>
             </Modal>
+       
+            <Modal
+                  show={show2}
+                  onHide={handleClose2}
+                  backdrop="static"
+                  keyboard={false}
+              >
+                  <Modal.Header>
+                  <Modal.Title>You lost!</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                        You exceeded 15 moves. Want to try again? 
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <button 
+                        variant="primary" 
+                        onClick={playAgain2}
+                    >
+                        Try Again 
+                    </button>
+                  </Modal.Footer>
+            </Modal>
+
 
         </div>
     );
