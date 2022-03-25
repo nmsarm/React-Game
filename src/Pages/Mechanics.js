@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {Howl, Howler} from 'howler';
 
 import '../Styles/MechanicsStyle.scss';
+import SoundFx from '../Assets/SoundFX.mp3';
+
+// sound fx
+const sound = new Howl({
+    src: [SoundFx]
+})
+
+Howler.volume(0.1);
 
 const Mechanics = () => {
     return (
@@ -14,8 +23,9 @@ const Mechanics = () => {
                 4. Every time a pair of cards is flipped, it counts as one move.<br></br>
                 5. In 15 movements, find all of the matches. The game will be over once you run out of moves.</p>
                 <Link to ="/" aria-current="page">
-                    <button className="backBtn">
-                        Back
+                    <button className="backBtn"
+                        onClick={sound.play()}>
+                            Back
                     </button>
                 </Link>
             </div>
