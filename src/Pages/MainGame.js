@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
+// SoundFX
 import {Howl, Howler} from 'howler';
 import SoundFx from '../Assets/SoundFX.mp3';
-
-import Card from "../Components/Card";
-// import Timer from "../Components/TimeLimit";
-
 
 // For Modal
 import { Modal } from "react-bootstrap";
 
-import '../Styles/MainGameStyle.scss';
+// Components and Pages
+import Card from "../Components/Card";
 
+// Stylesheet
+import '../Styles/MainGameStyle.scss';
+import '../Styles/ButtonStyle.scss';
+
+// Cards
 import Axie1 from "../Assets/axie1.jpg"
 import Axie2 from "../Assets/axie2.jpg"
 import Axie3 from "../Assets/axie3.jpg"
 import Axie4 from "../Assets/axie4.jpg"
 import Axie5 from "../Assets/axie5.jpg"
 import Axie6 from "../Assets/axie6.jpg"
-// import Axie7 from "../Assets/axie7.png"
-// import Axie8 from "../Assets/axie8.png"
-// import Axie9 from "../Assets/axie9.png"
-// import Axie10 from "../Assets/axie10.png"
-// import { Container } from "react-bootstrap";
-
 
 // Array of Cards
 const cardImages = [
@@ -33,10 +31,6 @@ const cardImages = [
     { "src" : Axie4, matched: false },
     { "src" : Axie5, matched: false },
     { "src" : Axie6, matched: false },
-    // { "src" : Axie7, matched: false },
-    // { "src" : Axie8, matched: false },
-    // { "src" : Axie9, matched: false },
-    // { "src" : Axie10, matched: false },
 ]
 
 const MainGame = () => {
@@ -48,14 +42,13 @@ const MainGame = () => {
     const [ choiceTwo, setChoiceTwo ] = useState(null)
     const [ disabled, setDisabled ] = useState(false);
 
-    //modal
+    //modal win
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
-     //modal if lose
-     const [show2, setShow2] = useState(false);
-     const handleClose2 = () => setShow2(false);
+    //modal lose
+    const [show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow2(false);
 
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages] //2 sets
@@ -118,8 +111,6 @@ const MainGame = () => {
         }
     }, [choiceOne, choiceTwo])
 
-    // console.log(cards) - log array
-
     // reset choices & increase moves
     const resetMoves = () => {
         setChoiceOne(null)
@@ -128,9 +119,10 @@ const MainGame = () => {
         setDisabled(false)
     }
 
-    // check if card matches === 6
+    // win 
     const checkMatches = () => {
         console.log("Card Matches: " + matches )
+        // check if card matches === 6
         if (matches === cards.length/2) {
             console.log("You found them all in " + (moves + 1) + " moves!"); 
             setShow(true) //call win modal 
@@ -139,8 +131,8 @@ const MainGame = () => {
 
     // lose 
     const gameOver = () => {
-        //if moves+1 == 15 (starts with index 0) and matches != 6 (since lumilitaw kahit win sa last move)
-        if (moves == 14 && !(matches === cards.length/2)) { // moves starts w/ 0, == para di na pwede magmove ulit
+        // if moves+1 == 15 (starts with index 0) and matches != 6 
+        if (moves === 14 && !(matches === cards.length/2)) {
             console.log("You already have " + (moves + 1) + " moves. Want to try again?");
             setShow2(true); //call lose modal
         }
@@ -152,7 +144,7 @@ const MainGame = () => {
     }
 
 
-    const playAgain2 = () => {
+    const tryAgain = () => {
         shuffleCards()
         handleClose2()
     }
@@ -206,12 +198,17 @@ const MainGame = () => {
                   </Modal.Body>
                   <Modal.Footer className="justify-content-center">
                     <button 
-                        className="tryBtn"
+                        className="playBtn"
                         variant="primary" 
                         onClick={playAgain}
                     >
                         Play Again 
                     </button>
+                    <Link to ="/" aria-current="page">
+                        <button className="playBtn">
+                            Main Menu
+                        </button>
+                     </Link>
                   </Modal.Footer>
             </Modal>
        
@@ -231,10 +228,15 @@ const MainGame = () => {
                     <button 
                         className="tryBtn"
                         variant="primary" 
-                        onClick={playAgain2}
+                        onClick={tryAgain}
                     >
                         Try Again 
                     </button>
+                    <Link to ="/" aria-current="page">
+                        <button className="playBtn">
+                            Main Menu
+                        </button>
+                     </Link>
                   </Modal.Footer>
             </Modal>
 

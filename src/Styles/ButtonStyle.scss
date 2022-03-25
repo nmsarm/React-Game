@@ -1,8 +1,10 @@
 @import 'Colors';
 
-
-// PLAY BUTTON FOR HOMESCREEN
-.playBtn {
+// BUTTONS for HomeScreen and MainGame
+.playBtn,
+.mechanicsBtn,
+.backBtn,
+.tryBtn {
     width: 200px;
     height: 80px;
     color: #fff;
@@ -18,99 +20,11 @@
     margin: 10px;
 }
 
-.playBtn:active {
+.playBtn:active,
+.mechanicsBtn:active,
+.backBtn:active,
+.tryBtn:active  {
     transform: translateY(3px);
     box-shadow: 0 0px 0 $darkbrown;
     background-color: #ad6d4a;
-  }
-
-// MECHANICS BUTTON FOR HOMESCREEN
-.mechanicsBtn {
-  width: 200px;
-  height: 80px;
-  color: #fff;
-  background-color: $brownBtn;
-  border: 4px solid $darkbrown;
-  border-radius: 15px;
-  box-shadow: 0 5px 0 $darkbrown;
-  transition: 150ms ease-out;
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Fredoka One', cursive;
-  cursor: pointer;
-  margin: 10px;
 }
-
-.mechanicsBtn:active {
-  transform: translateY(3px);
-  box-shadow: 0 0px 0 $darkbrown;
-  background-color: #ad6d4a;
-}
-
-// BACK BUTTON FOR HOMESCREEN
-.backBtn {
-  width: 200px;
-  height: 80px;
-  color: #fff;
-  background-color: $brownBtn;
-  border: 4px solid $darkbrown;
-  border-radius: 15px;
-  box-shadow: 0 5px 0 $darkbrown;
-  transition: 150ms ease-out;
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Fredoka One', cursive;
-  cursor: pointer;
-  margin: 10px;
-}
-
-.backBtn:active {
-  transform: translateY(3px);
-  box-shadow: 0 0px 0 $darkbrown;
-  background-color: #ad6d4a;
-}
-
-
-// NEXT BUTTON FOR HOMESCREEN
-.nextBtn {
-    width: 170px;
-    height: 60px;
-    color: #fff;
-    background-color: $brownBtn;
-    border: 4px solid $darkbrown;
-    border-radius: 15px;
-    box-shadow: 0 5px 0 $darkbrown;
-    transition: 150ms ease-out;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Fredoka One', cursive;
-    cursor: pointer;
-}
-
-.nextBtn:active {
-    transform: translateY(3px);
-    box-shadow: 0 0px 0 $darkbrown;
-    background-color: #ad6d4a;
-  }
-
-// TRY AGAIN BUTTON FOR GAMEOVER  
-.tryBtn {
-    width: 170px;
-    height: 60px;
-    color: #fff;
-    background-color: $brownBtn;
-    border: 4px solid $darkbrown;
-    border-radius: 15px;
-    box-shadow: 0 5px 0 $darkbrown;
-    transition: 150ms ease-out;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Fredoka One', cursive;
-    cursor: pointer;
-}
-
-.tryBtn:active {
-    transform: translateY(3px);
-    box-shadow: 0 0px 0 $darkbrown;
-    background-color: #ad6d4a;
-  }
