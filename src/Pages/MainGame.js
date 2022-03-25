@@ -206,7 +206,7 @@ const MainGame = () => {
                   </Modal.Body>
                   <Modal.Footer className="justify-content-center">
                     <button 
-                        class="tryBtn"
+                        className="tryBtn"
                         variant="primary" 
                         onClick={playAgain}
                     >
@@ -229,7 +229,7 @@ const MainGame = () => {
                   </Modal.Body>
                   <Modal.Footer className="justify-content-center">
                     <button 
-                        class="tryBtn"
+                        className="tryBtn"
                         variant="primary" 
                         onClick={playAgain2}
                     >
